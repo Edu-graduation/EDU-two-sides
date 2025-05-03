@@ -1,0 +1,451 @@
+.main-content {
+  padding: 2rem;
+  width: 100%;
+  background-color: var(--color-grey-light-1);
+  border-radius: 5rem;
+  margin-right: 1rem;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.chats {
+  /* width: 90%; */
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem;
+  overflow: hidden scroll;
+  scrollbar-width: none;
+  transition: all 0.3s ease-in-out;
+  animation: slideOutRight 0.4s ease-in-out;
+  position: relative;
+  /* display: none; */
+  /* display: none; */
+}
+.chats.open {
+  width: 90%;
+  display: none;
+}
+.chats__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+.chats__header h1 {
+  font-weight: 900;
+  margin-right: auto;
+  margin-left: auto;
+}
+.chats__menu-btn {
+  border: none;
+  width: 4rem;
+  height: 4rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.chats__menu-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chats__list {
+  margin-top: 2rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden scroll; */
+  position: relative;
+  gap: 2rem;
+}
+.chat__item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  transition: all 0.2s ease-in-out;
+  border-bottom: var(--color-primary) 1px solid;
+  cursor: pointer;
+}
+.chat__item:hover {
+  background-color: var(--color-grey-light-2);
+}
+.chat__item.active {
+  box-shadow: 0.2rem 0.2rem 0.3rem var(--color-primary),
+    0 -0.1rem 0rem var(--color-primary);
+}
+.chat__name {
+  font-size: var(--fs-5);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-grey-dark-1);
+}
+.chat__img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--color-grey-light-3);
+  box-shadow: 0 0.2rem 0.2rem var(--color-primary);
+}
+.chat__img img {
+  width: 100%;
+}
+
+/*=============== CHAT VIEW ===============*/
+.chat__view {
+  padding: 2rem;
+  position: relative;
+  /* width: 90%; */
+  width: 90%;
+  background-color: var(--color-grey-light-1);
+  border-radius: 2rem;
+  margin-right: 1rem;
+  box-shadow: -0.1rem 0.4rem 0.4rem var(--color-primary),
+    0.1rem -0.2rem 0.2rem var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+  transition: all 0.3s ease-in-out;
+  animation: slideOutLeft 0.4s ease-in-out;
+}
+.chat__view.active {
+  display: flex;
+}
+.collapse__chat-btn {
+  border: none;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  font-size: var(--fs-3);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+.collapse__chat-btn svg {
+  width: 100%;
+  height: 100%;
+}
+.chat__header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 2px solid var(--color-grey-light-3);
+  padding: 1rem;
+}
+.chat__messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+  overflow: hidden scroll;
+  scrollbar-width: none;
+  height: 100%;
+  position: relative;
+  /* height: 60vh; */
+}
+.message {
+  background-color: var(--color-primary);
+  color: var(--color-grey-light-1);
+  padding: 1.5rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-7);
+  width: fit-content;
+  position: relative;
+}
+.message__sender-name {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.message.sent {
+  align-self: flex-end;
+  background-color: var(--color-primary);
+  color: var(--color-grey-light-1);
+}
+.message.sent .message__sender-name {
+  color: #f9d7d7;
+}
+.message.received {
+  align-self: flex-start;
+  /* background-color: var(--color-grey-light-3); */
+  background-color: #f9d7d7;
+  color: var(--color-grey-dark-1);
+}
+.message.received .message__sender-name {
+  color: var(--color-primary);
+}
+.message__time {
+  font-size: var(--fs-8);
+  color: var(--color-grey-dark-2);
+  position: absolute;
+  bottom: -2rem;
+  right: 1rem;
+}
+.input__group {
+  /* width: 100%; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.message__input {
+  border: none;
+  padding: 2rem 1rem;
+  border-radius: 2rem;
+  background-color: var(--color-grey-light-2);
+  width: 100%;
+  font-weight: 700;
+  padding-left: 8rem;
+}
+.message__input:focus {
+  outline: var(--color-primary) solid 3px;
+}
+.chat__setting-btn {
+  position: absolute;
+  border: none;
+  display: block;
+  background-color: transparent;
+  padding: 1rem 2rem;
+  right: 5rem;
+}
+.chat__phone-btn {
+  position: absolute;
+  display: block;
+  border: none;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  right: 2rem;
+  color: var(--color-grey-light-1);
+}
+.message__input::placeholder {
+  color: var(--color-grey-dark-3);
+}
+.send__message-btn {
+  position: absolute;
+  display: block;
+  border: none;
+  padding: 1rem 2rem;
+  right: 1rem;
+  color: var(--color-grey-light-1);
+  background-color: transparent;
+}
+.camera__message-btn {
+  position: absolute;
+  display: block;
+  border: none;
+  padding: 1rem 2rem;
+  right: 7rem;
+  background-color: transparent;
+  color: var(--color-grey-light-1);
+}
+.gallery__message-btn {
+  position: absolute;
+  display: block;
+  border: none;
+  padding: 1rem 2rem;
+  right: 13rem;
+  background-color: transparent;
+  color: var(--color-grey-light-1);
+}
+.file__message-btn {
+  position: absolute;
+  display: block;
+  border: none;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  left: 0;
+  color: var(--color-grey-light-1);
+}
+.add-chat-btn {
+  position: fixed;
+  display: block;
+  border: none;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  right: 5rem;
+  bottom: 5rem;
+  cursor: pointer;
+  z-index: 1;
+}
+.gallery__message-btn svg,
+.camera__message-btn svg,
+.send__message-btn svg,
+.file__message-btn svg,
+.chat__setting-btn svg,
+.chat__phone-btn svg {
+  width: 3rem;
+  height: 3rem;
+  fill: #999aaa !important;
+  cursor: pointer;
+}
+.gallery__message-btn svg,
+.camera__message-btn svg,
+.file__message-btn svg,
+.chat__phone-btn svg {
+  cursor: not-allowed;
+}
+.file__message-btn svg {
+  z-index: -1;
+  /* display: none; */
+}
+.input__group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chats__search {
+  border-radius: 5rem;
+  display: block;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 0.2rem 0.2rem var(--color-primary),
+    0 -0.1rem 0rem var(--color-primary);
+}
+.search__icon {
+  position: absolute;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  color: var(--color-grey-dark-3);
+}
+.search__icon svg {
+  width: 100%;
+  height: 100%;
+}
+.loading-messages,
+.loading-chats {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  -webkit-mask: conic-gradient(from 15deg, #0000, #000);
+  animation: l26 1s infinite steps(12);
+}
+.loader,
+.loader:before,
+.loader:after {
+  background: radial-gradient(
+        closest-side at 50% 12.5%,
+        var(--color-primary) 96%,
+        #0000
+      )
+      50% 0/20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%, var(--color-primary) 96%, #0000)
+      0 50%/80% 20% repeat-x;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.loader:after {
+  transform: rotate(60deg);
+}
+
+@keyframes l26 {
+  100% {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+.empty-messages {
+  text-align: center;
+  margin: auto;
+}
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0.2;
+    transform: translateY(30%);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Remove the clear (X) button from search inputs */
+.chats__search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+/* For Microsoft Edge */
+.chats__search::-ms-clear {
+  display: none;
+}
+
+/* For older versions of IE */
+.chats__search::-ms-reveal {
+  display: none;
+}

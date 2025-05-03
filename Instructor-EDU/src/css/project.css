@@ -1,0 +1,425 @@
+/* Main content styling */
+.main-content {
+  padding: 2rem;
+  width: 100%;
+  background-color: var(--color-grey-light-1, #f4f7fa);
+  border-radius: 5rem;
+  margin-right: 1rem;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.1);
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+  gap: 2rem;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Layout for the two sections */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 2rem;
+  gap: 1rem;
+  width: 60%;
+  overflow: hidden;
+}
+
+.left-section,
+.right-section {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+}
+.right-section {
+  width: 40%;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.left-section {
+  /* flex: 1.5; */
+  overflow: hidden scroll;
+  height: 50%;
+}
+/* .projectListBody {
+  overflow: hidden scroll;
+} */
+/* .right-section {
+  flex: 1.5;
+} */
+
+/* Card styling for sections */
+.project-list-card,
+.upload-form-card,
+.submission-list-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); */
+  /* overflow: hidden scroll; */
+  transition: all 0.3s ease;
+  height: 95%;
+}
+.upload-form-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem;
+  overflow: visible;
+}
+
+.project-list-card:hover,
+.upload-form-card:hover,
+.submission-list-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Assignment list table */
+.project-list-table,
+.submission-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.project-list-table th,
+.project-list-table td,
+.submission-list-table th,
+.submission-list-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+.project-list-table th {
+  padding: 1rem;
+}
+.project-list-table th,
+.submission-list-table th {
+  background: linear-gradient(135deg, #6a5af9, #8a7af9);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.project-list-table tr:hover,
+.submission-list-table tr:hover {
+  background-color: #f1f5ff;
+}
+
+.project-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #6a5af9;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.view-link,
+.view-submission-button {
+  color: #6a5af9;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* .view-link:hover,
+.view-submission-button:hover {
+  color: #5a4ae9;
+} */
+
+/* View button for submissions */
+.view-submission-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #6a5af9;
+  color: white;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.view-submission-button:hover {
+  background-color: #5a4ae9;
+}
+
+/* Upload form styling */
+.upload-form-card h2,
+.submission-list-card h2,
+.project-list-card h2 {
+  color: #6a5af9;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+.upload-form-card h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #666;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6a5af9;
+}
+
+.form-group textarea {
+  /* resize: none;  */
+  /* Disable resizing */
+  resize: vertical;
+  min-height: 50px;
+  /* Fixed height */
+}
+
+.due-date-wrapper {
+  position: relative;
+}
+
+.due-date-wrapper i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6a5af9;
+  font-size: 18px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6a5af9;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #5a4ae9;
+}
+
+/* Success message */
+.success-message {
+  color: #4caf50;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 1rem;
+  display: none;
+}
+
+/* Submission list section */
+.submission-section {
+  width: 100%;
+  overflow: hidden scroll;
+  /* min-height: 30rem;
+  max-height: 28rem; */
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  /* .left-section,
+    .right-section {
+      width: 100%;
+    } */
+
+  .project-list-card,
+  .upload-form-card,
+  .submission-list-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+    border-radius: 3rem;
+  }
+
+  .project-list-table th,
+  .project-list-table td,
+  .submission-list-table th,
+  .submission-list-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .project-number {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .upload-form-card h2,
+  .submission-list-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .submit-button,
+  .view-submission-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+.form-group-special {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  /* align-items: center; */
+}
+.form-group-special input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #666;
+  transition: border-color 0.3s ease;
+}
+.form-group-special input:focus {
+  outline: none;
+  border-color: #6a5af9;
+}
+#course-name {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #666;
+  transition: border-color 0.3s ease;
+}
+
+#course-name:focus {
+  outline: none;
+  border-color: #6a5af9;
+}
+.show__project-details {
+  cursor: pointer;
+}
+
+/* =================================*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  max-width: 80rem;
+  position: relative;
+  font-size: var(--fs-6);
+  animation: slideIn 0.3s;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 38px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  color: #000;
+}
+
+.detail-row {
+  margin-bottom: 20px;
+}
+
+.detail-row strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+#modal-project-description {
+  padding: 15px;
+  border-radius: 5px;
+  white-space: pre-line;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

@@ -1,0 +1,143 @@
+.main-content {
+  padding: 2rem;
+  width: 134rem;
+  background-color: var(--color-grey-light-1);
+  border-radius: 5rem 5rem 5rem 5rem;
+  margin-right: 1rem;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  /* overflow: scroll; */
+  scrollbar-width: none;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.profile-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  width: 45%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-card {
+  background: linear-gradient(135deg, #e0e8ff, #d7f9eb);
+  border-radius: 15px;
+  padding: 4rem;
+  width: 80rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-card h2 {
+  color: #444;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.welcome-card p {
+  color: #666;
+}
+
+.university-name {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.profile-details {
+  margin-top: 10px;
+}
+
+.profile-details p {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.profile-details span {
+  font-weight: bold;
+  color: #333;
+}
+
+.schedule-section {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  width: 110rem;
+  margin-top: 20px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.schedule-header {
+  background-color: #9aafd9;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table th {
+  text-align: left;
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+  color: #666666;
+  font-weight: normal;
+}
+
+.schedule-table td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.course-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.course-row {
+  display: flex;
+  align-items: center;
+}
+.schedule-table tr:hover {
+  background-color: #cddaef;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.tag-lecture {
+  color: #8055e7;
+  background-color: #f1e6ff;
+}
+
+.tag-lab {
+  color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.tag-quiz {
+  color: #ff9451;
+  background-color: #fff2e6;
+}

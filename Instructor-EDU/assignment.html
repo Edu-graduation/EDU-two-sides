@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructor assignment</title>
+    <link rel="icon" type="image/x-icon" href="/src/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="src/images/favicon-16x16.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link rel="stylesheet" href="src/css/base.css" />
+    <link rel="stylesheet" href="src/css/assignment.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <h2><img src="src/images/logo.png" class="img-logo" />EDU</h2>
+        </div>
+        <ul class="sidebar__list">
+          <li id="home" class="Sli homeli">
+            <a class="nav__link" href="home.html">Home</a>
+          </li>
+          <li id="courses" class="Sli couli">
+            <a class="nav__link" href="session.html">Session</a>
+          </li>
+          <li id="calendar" class="Sli calli">
+            <a class="nav__link" href="quiz.html">Quiz</a>
+          </li>
+          <li id="chats" class="chatli active-button">
+            <a class="Sli" href="assignment.html">Assignment</a>
+          </li>
+          <li id="chats" class="chatli">
+            <a class="Sli" href="project.html">Project</a>
+          </li>
+          <li id="chats" class="chatli">
+            <a class="Sli" href="chats.html">Chats</a>
+          </li>
+          <li class="log-out">
+            <a>
+              <button class="Btn">
+                <div class="sign">
+                  <svg viewBox="0 0 512 512">
+                    <path
+                      d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 
+                                        20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128
+                                        0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 
+                                        17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 
+                                        14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 
+                                        32 32s-14.3 32-32 32z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="text">Logout</div>
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <div class="content-wrapper">
+          <!-- Left Section: Assignment List -->
+          <div class="left-section">
+            <div class="assignment-list-card">
+              <h2>Assignments</h2>
+              <table class="assignment-list-table">
+                <thead>
+                  <tr>
+                    <th>Number</th>
+                    <th>Due Date</th>
+                    <th>View Assignment</th>
+                  </tr>
+                </thead>
+                <tbody id="assignmentListBody">
+                  <tr>
+                    <td>
+                      <span class="assignment-number">1</span> Assignment 1
+                    </td>
+                    <td>4/25/2025</td>
+                    <td><p class="show__assignment-details">View</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="assignment-number">2</span> Assignment 2
+                    </td>
+                    <td>5/2/2025</td>
+                    <td><p class="show__assignment-details">View</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="assignment-number">3</span> Assignment 3
+                    </td>
+                    <td>5/9/2025</td>
+                    <td><p class="show__assignment-details">View</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="assignment-number">4</span> Assignment 4
+                    </td>
+                    <td>5/16/2025</td>
+                    <td><p class="show__assignment-details">View</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="assignment-number">5</span> Assignment 5
+                    </td>
+                    <td>5/23/2025</td>
+                    <td><p class="show__assignment-details">View</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="submission-section">
+            <div class="submission-list-card">
+              <h2>Student Submissions</h2>
+              <table class="submission-list-table">
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <!-- <th>Student ID</th> -->
+                    <th>Assignment</th>
+                    <th>View</th>
+                  </tr>
+                </thead>
+                <tbody id="submissionListBody">
+                  <!-- <tr>
+                    <td>John Doe</td>
+                    <td>STU001</td>
+                    <td>Assignment 1</td>
+                    <td><a href="#" class="view-submission-button">View</a></td>
+                  </tr>
+                  <tr>
+                    <td>Jane Smith</td>
+                    <td>STU002</td>
+                    <td>Assignment 1</td>
+                    <td><a href="#" class="view-submission-button">View</a></td>
+                  </tr>
+                  <tr>
+                    <td>Ahmed Ali</td>
+                    <td>STU003</td>
+                    <td>Assignment 2</td>
+                    <td><a href="#" class="view-submission-button">View</a></td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Right Section: Upload Assignment Form -->
+        </div>
+
+        <!-- New Section: Student Submissions Table -->
+
+        <div class="right-section">
+          <div class="upload-form-card">
+            <h2>Upload Assignment</h2>
+            <div class="form-group-special">
+              <label for="course-name">Course Name</label>
+              <select name="courseName" id="course-name">
+                <option value="1">bla</option>
+                <option value="2">blaaa</option>
+              </select>
+              <label for="assignmentTitle">Assignment Title</label>
+              <input
+                type="text"
+                id="assignmentTitle"
+                placeholder="Enter assignment title"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="assignmentDescription">Assignment Description</label>
+              <textarea
+                id="assignmentDescription"
+                placeholder="Enter assignment description"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="dueDate">Due Date</label>
+              <div class="due-date-wrapper">
+                <input
+                  type="datetime-local"
+                  id="dueDate"
+                  placeholder="mm/dd/yyyy --:-- --"
+                  required
+                />
+                <!-- <i class="fi fi-rr-calendar"></i> -->
+              </div>
+            </div>
+            <button class="submit-button" id="submitAssignment">
+              Upload Assignment
+            </button>
+            <div class="success-message" id="successMessage">
+              Assignment uploaded successfully!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/js/assignment.js"></script>
+  </body>
+</html>

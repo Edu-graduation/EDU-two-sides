@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign</title>
+    <link rel="icon" type="image/x-icon" href="main/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="main/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="main/images/favicon-16x16.png"
+    />
+    <link rel="stylesheet" href="main/css/form.css" />
+  </head>
+
+  <body>
+    <main class="authentcation-container">
+      <div class="container">
+        <!-- Sign-in Section -->
+        <div class="form-section sign-in-form">
+          <div class="form-content">
+            <h1>START YOUR JOURNEY.</h1>
+            <br />
+            <h2 class="form__title">Sign In</h2>
+            <p class="form__subtitle">
+              Don't have an account? <a href="#" id="signUp">Sign up</a>
+            </p>
+            <br /><br />
+            <form id="signInForm">
+              <label class="form__label" for="id">ID</label>
+              <input
+                class="id-input"
+                type="text"
+                id="id"
+                name="id"
+                required
+              /><br />
+
+              <label class="form__label" for="password">PASSWORD</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                maxlength="8"
+              /><br /><br />
+
+              <button class="sign-in-btn" type="submit">Sign In</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Image Section -->
+        <div class="image-section">
+          <div class="edu-container"></div>
+          <img
+            class="background"
+            src="main/images/background.png"
+            alt="Login Image"
+          />
+        </div>
+
+        <!-- Sign-up Section -->
+        <div class="form-section sign-up-form hidden">
+          <div class="form-content">
+            <h2 class="form__title">CREATE ACCOUNT</h2>
+            <br />
+            <p class="form__subtitle">
+              Already have an account? <a href="#" id="signIn">Sign in</a>
+            </p>
+            <br />
+            <form id="signUpForm">
+              <label class="form__label" for="signup-id">ID</label>
+              <input
+                type="text"
+                class="signup-id"
+                name="signup-id"
+                required
+              /><br />
+
+              <label class="form__label" for="signup-password">PASSWORD</label
+              ><br />
+              <input
+                type="password"
+                id="signup-password"
+                name="signup-password"
+                required
+                minlength="8"
+                maxlength="8"
+              /><br />
+
+              <label class="form__label" for="signup-repass">RE-PASSWORD</label
+              ><br />
+              <input
+                type="password"
+                id="signup-repass"
+                name="signup-repass"
+                required
+                minlength="8"
+                maxlength="8"
+              /><br />
+
+              <button class="sign-in-btn" type="submit">Sign Up</button><br />
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Form switching
+      const signUpBtn = document.getElementById("signUp");
+      const signInBtn = document.getElementById("signIn");
+      const imageSection = document.querySelector(".image-section");
+      const signupForm = document.querySelector(".sign-up-form");
+      const signinForm = document.querySelector(".sign-in-form");
+
+      signUpBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        imageSection.classList.add("slide-left");
+        signinForm.classList.add("hidden");
+        signupForm.classList.remove("hidden");
+      });
+
+      signInBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        signupForm.classList.add("hidden");
+        imageSection.classList.remove("slide-left");
+        signinForm.classList.remove("hidden");
+      });
+
+      // Input validation
+      function validateInput(id, password) {
+        if (password.length < 8) {
+          alert("Password must be exactly 8 characters.");
+          return false;
+        }
+        if (!id) {
+          alert("ID is required.");
+          return false;
+        }
+        // Restrict password to ASCII characters (optional, adjust as needed)
+        if (!/^[ -~]+$/.test(password)) {
+          alert(
+            "Password must contain only English letters, numbers, or standard symbols."
+          );
+          return false;
+        }
+        return true;
+      }
+
+      // API configuration
+      const API_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1aXdkanRtZGVlbXBjcXhldWhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ3NTY1MDcsImV4cCI6MjA2MDMzMjUwN30.XfSmnKA8wbsXIA1qkfYaRkzxtEdudIDNYbSJu-M5Zag";
+      const STUDENT_BASE_URL =
+        "https://iuiwdjtmdeempcqxeuhf.supabase.co/rest/v1/student";
+      const INSTRUCTOR_BASE_URL =
+        "https://iuiwdjtmdeempcqxeuhf.supabase.co/rest/v1/instructor";
+
+      // Sign-In Handler
+      const handleSignIn = async (id, password) => {
+        if (!validateInput(id, password)) return;
+
+        const pwdEncoded = encodeURIComponent(password);
+
+        // Try student login first
+        const studentUrl = `${STUDENT_BASE_URL}?student_id=eq.${id}&student_password=eq.${pwdEncoded}`;
+        try {
+          const studentResponse = await fetch(studentUrl, {
+            headers: {
+              apikey: API_KEY,
+              Authorization: `Bearer ${API_KEY}`,
+            },
+          });
+
+          if (!studentResponse.ok) {
+            console.error("Student API Error:", {
+              status: studentResponse.status,
+              statusText: studentResponse.statusText,
+              url: studentUrl,
+            });
+            const errorData = await studentResponse.json();
+            console.error("Student Error Details:", errorData);
+            // Continue to instructor login even if student query fails
+          } else {
+            const studentData = await studentResponse.json();
+            if (studentData.length > 0) {
+              console.log("Student Data:", studentData[0]); // Log student data
+              sessionStorage.setItem("studentId", id);
+              console.log(id);
+              window.location.href = "Student-EDU/home.html";
+              return;
+            }
+          }
+
+          // If student login fails, try instructor login
+          const instructorUrl = `${INSTRUCTOR_BASE_URL}?instructor_id=eq.${id}&instructor_pass=eq.${pwdEncoded}`;
+          const instructorResponse = await fetch(instructorUrl, {
+            headers: {
+              apikey: API_KEY,
+              Authorization: `Bearer ${API_KEY}`,
+            },
+          });
+
+          const instructorData = await instructorResponse.json();
+
+          if (!instructorResponse.ok) {
+            console.error("Instructor API Error:", {
+              status: instructorResponse.status,
+              statusText: instructorResponse.statusText,
+              url: instructorUrl,
+            });
+            console.error("Instructor Error Details:", instructorData);
+            throw new Error("Instructor API request failed");
+          }
+
+          if (instructorData.length > 0) {
+            console.log("Instructor Data:", instructorData[0]); // Log instructor data
+            sessionStorage.setItem("instructorId", id);
+            window.location.href = "Instructor-EDU/home.html";
+            return;
+          }
+
+          // If both fail, show error
+          alert("ID or Password is incorrect.");
+        } catch (err) {
+          console.error("Network Error:", err.message);
+          alert("There was a network error. Please try again.");
+        }
+      };
+
+      // Sign-In Form Submission
+      const signInForm = document.getElementById("signInForm");
+      const idInput = document.getElementById("id");
+      const passwordInput = document.getElementById("password");
+
+      signInForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const id = idInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        await handleSignIn(id, password);
+      });
+
+      // Sign-Up Form Submission
+      const signUpForm = document.getElementById("signUpForm");
+      signUpForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const id = document.getElementById("signup-id").value.trim();
+        const password = document
+          .getElementById("signup-password")
+          .value.trim();
+        const rePassword = document
+          .getElementById("signup-repass")
+          .value.trim();
+
+        if (!validateInput(id, password)) {
+          return;
+        }
+
+        if (password !== rePassword) {
+          alert("Passwords do not match.");
+          return;
+        }
+
+        alert("Sign Up successful!");
+        // TODO: Add API call to store new student in the database if needed
+      });
+    </script>
+  </body>
+</html>
