@@ -71,6 +71,8 @@
 }
 .chat__item:hover {
   background-color: var(--color-grey-light-2);
+  transform: translateY(-0.5rem);
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
 }
 .chat__item.active {
   box-shadow: 0.2rem 0.2rem 0.3rem var(--color-primary),
@@ -158,6 +160,7 @@
   flex-direction: column;
   font-size: var(--fs-7);
   width: fit-content;
+  min-width: 10rem;
   position: relative;
 }
 .message__sender-name {
